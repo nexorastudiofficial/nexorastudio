@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import logo from "@/public/logo.png";
 
 const links = [
   { label: "خدماتنا", href: "#features" },
@@ -31,12 +32,13 @@ export default function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#" className="group flex items-center gap-2.5">
           <Image
-            src="/logo.png"
+            src={logo}
             alt="NexoraStudio"
             width={32}
             height={32}
             className="h-8 w-8 object-contain"
           />
+
           <span className="text-lg font-semibold tracking-tight text-white">
             NexoraStudio
           </span>

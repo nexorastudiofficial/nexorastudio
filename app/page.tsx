@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import logo from "@/public/logo.png";
 import Navbar from "@/components/Navbar";
 import Scene from "@/components/Scene";
 import Showcase from "@/components/Showcase";
+
 
 const services = [
   {
@@ -305,7 +307,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
           <div className="flex items-center gap-2.5">
             <Image
-              src="/logo.png"
+              src={logo}
               alt="NexoraStudio"
               width={24}
               height={24}
