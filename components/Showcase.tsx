@@ -21,6 +21,30 @@ const templates = [
     sitePrice: "12,000 دج",
     pagePrice: "6,500 دج",
   },
+  {
+    slug: "restaurant",
+    name: "La Brasa — مطعم",
+    tagline: "قالب مطعم دافئ بأسلوب تحريري راقٍ وقائمة طعام فاخرة",
+    tags: ["مطعم", "تحريري"],
+    sitePrice: "10,000 دج",
+    pagePrice: "5,500 دج",
+  },
+  {
+    slug: "saas",
+    name: "Pulse — منصة برمجية",
+    tagline: "واجهة منتج SaaS داكنة وعصرية تركّز على التحويل والأرقام",
+    tags: ["SaaS", "تقني"],
+    sitePrice: "14,000 دج",
+    pagePrice: "7,000 دج",
+  },
+  {
+    slug: "portfolio",
+    name: "Mira Anders — محفظة أعمال",
+    tagline: "قالب محفظة أعمال فاتحة وأنيقة للمصممين والمبدعين",
+    tags: ["محفظة", "إبداعي"],
+    sitePrice: "9,000 دج",
+    pagePrice: "5,000 دج",
+  },
 ];
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
