@@ -52,9 +52,10 @@ export default function ContactPage() {
                 href="https://wa.me/213564086437"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-block text-emerald-300 transition-colors hover:text-emerald-200"
+                dir="ltr"
+                className="mt-1 inline-block text-emerald-300 transition-colors hover:text-emerald-200 font-mono"
               >
-                05 64 08 64 37
+                +213 564 08 64 37
               </a>
             </div>
             <div>
