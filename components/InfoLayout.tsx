@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import logo from "@/public/logo.png";
 
 export default function InfoLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,12 +9,13 @@ export default function InfoLayout({ children }: { children: React.ReactNode }) 
         <nav className="mx-auto flex h-16 max-w-4xl items-center justify-between px-4 sm:px-6">
           <Link href="/" className="group flex items-center gap-2.5">
             <Image
-              src="/logo.png"
+              src={logo}
               alt="NexoraStudio"
               width={32}
               height={32}
               className="h-8 w-8 object-contain"
             />
+
             <span className="text-lg font-semibold tracking-tight text-white">
               NexoraStudio
             </span>
