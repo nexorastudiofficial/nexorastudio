@@ -23,6 +23,9 @@ const templates = [
   },
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const getTemplateUrl = (slug: string) => `${basePath}/templates/${slug}`;
+
 export default function Showcase() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -60,7 +63,7 @@ export default function Showcase() {
             <span className="truncate font-mono">{current.slug}</span>
           </div>
           <a
-            href={`/templates/${current.slug}`}
+            href={getTemplateUrl(current.slug)}
             target="_blank"
             rel="noopener noreferrer"
             className="flex shrink-0 items-center gap-1 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors hover:bg-white/10"
@@ -85,7 +88,7 @@ export default function Showcase() {
           {templates.map((t, i) => (
             <iframe
               key={t.slug}
-              src={`/templates/${t.slug}`}
+              src={getTemplateUrl(t.slug)}
               title={t.name}
               loading={i === 0 ? "eager" : "lazy"}
               className={`absolute inset-0 h-full w-full transition-opacity duration-700 ${
