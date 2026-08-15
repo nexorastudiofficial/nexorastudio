@@ -16,8 +16,7 @@ const amiri = Amiri({
 
 export const metadata: Metadata = {
   title: "NexoraStudio — نصنع تجارب رقمية تصنع الفرق",
-  description:
-    "استوديو تصميم وتطوير مواقع — أصمم وأبني موقعك يدوياً من الصفر ليليق بعلامتك ويحوّل زوّارك إلى عملاء.",
+  description: "مواقع عصرية، هويات رقمية، وحلول مصممة لتنمية أعمالك.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

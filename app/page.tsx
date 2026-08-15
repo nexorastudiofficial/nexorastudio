@@ -103,8 +103,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
-            NexoraStudio استوديو تصميم وتطوير مواقع. أصمّم وأبني موقعك يدوياً من
-            الصفر — ليليق بعلامتك، ويحوّل زوّارك إلى عملاء.
+            مواقع عصرية، هويات رقمية، وحلول مصممة لتنمية أعمالك.
           </p>
 
           <div className="mt-10 flex w-full max-w-sm flex-col items-center gap-4 sm:w-auto sm:max-w-none sm:flex-row">
