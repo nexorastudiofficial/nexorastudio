@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import ElaneHeader from "../ElaneHeader";
 import { bySlug, sizes, type Product } from "../data/products";
 import { useCart } from "../cart/CartContext";
@@ -160,9 +161,9 @@ export default function ProductPage({ product }: { product: Product }) {
       <main className="mx-auto max-w-6xl px-4 pb-28 pt-6 sm:px-6 lg:pb-16">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-[#242321]/50">
-          <a href="/templates/elane" className="hover:text-[#242321]">الرئيسية</a>
+          <Link href="/templates/elane" className="hover:text-[#242321]">الرئيسية</Link>
           <span>/</span>
-          <a
+          <Link
             href={`/templates/elane/collections/${product.category}`}
             className="hover:text-[#242321]"
           >
@@ -171,7 +172,7 @@ export default function ProductPage({ product }: { product: Product }) {
               : product.category === "men"
                 ? "رجال"
                 : "إكسسوارات"}
-          </a>
+          </Link>
           <span>/</span>
           <span className="text-[#242321]/80">{product.nameEn}</span>
         </nav>
@@ -414,7 +415,7 @@ export default function ProductPage({ product }: { product: Product }) {
             </h2>
             <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-6">
               {look.map((item) => (
-                <a
+                <Link
                   key={item.slug}
                   href={`/templates/elane/product/${item.slug}`}
                   className="group block"
@@ -434,7 +435,7 @@ export default function ProductPage({ product }: { product: Product }) {
                   <p className="text-xs text-[#242321]/60 sm:text-sm">
                     {money(item.price)}
                   </p>
-                </a>
+                </Link>
               ))}
             </div>
             <button

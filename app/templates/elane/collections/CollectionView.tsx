@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import ElaneHeader from "../ElaneHeader";
 import ProductCard from "../components/ProductCard";
 import { byCategory, categoryLabels } from "../data/products";
@@ -59,7 +60,7 @@ export default function CollectionView({ category }: { category: string }) {
 
           <nav className="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-2 text-xs font-medium uppercase tracking-[0.18em]">
             {cats.map((c) => (
-              <a
+              <Link
                 key={c}
                 href={`/templates/elane/collections/${c}`}
                 className={`transition-colors ${
@@ -69,7 +70,7 @@ export default function CollectionView({ category }: { category: string }) {
                 }`}
               >
                 {categoryLabels[c]}
-              </a>
+              </Link>
             ))}
           </nav>
         </header>
