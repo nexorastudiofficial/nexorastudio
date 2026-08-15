@@ -45,13 +45,13 @@ export default function VeloraHeader() {
 
         <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.2em] text-[#A9A198] lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="transition-colors hover:text-[#F3EEE6]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -99,13 +99,13 @@ export default function VeloraHeader() {
           <ul className="space-y-1">
             {navLinks.map((link) => (
               <li key={link.label}>
-                <a
+                <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="block py-3 text-sm font-medium uppercase tracking-[0.2em] text-[#A9A198] transition-colors hover:text-[#F3EEE6]"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

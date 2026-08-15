@@ -35,22 +35,22 @@ export default function ElaneHeader() {
           )}
         </button>
 
-        <a
+        <Link
           href="/templates/elane"
           className="font-serif-display justify-self-center text-2xl tracking-[0.2em]"
         >
           ÉLANÉ
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.18em] text-[#242321]/70 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="transition-colors hover:text-[#242321]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -98,13 +98,13 @@ export default function ElaneHeader() {
           <ul className="space-y-1">
             {navLinks.map((link) => (
               <li key={link.label}>
-                <a
+                <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="block py-3 text-sm font-medium uppercase tracking-[0.18em] text-[#242321]/80 transition-colors hover:text-[#242321]"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

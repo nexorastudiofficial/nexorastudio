@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "../cart/CartContext";
 import { money } from "../data/money";
 import type { Product } from "../data/products";
@@ -11,7 +12,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group">
       <div className="relative">
-        <a href={`/templates/elane/product/${product.slug}`} className="block">
+        <Link href={`/templates/elane/product/${product.slug}`} className="block">
           <div className="relative aspect-[3/4] overflow-hidden bg-white">
             <Image
               src={product.images[0]}
@@ -26,7 +27,7 @@ export default function ProductCard({ product }: { product: Product }) {
               </span>
             )}
           </div>
-        </a>
+        </Link>
         <button
           onClick={() =>
             add({
@@ -44,12 +45,12 @@ export default function ProductCard({ product }: { product: Product }) {
           أضف إلى الحقيبة
         </button>
       </div>
-      <a href={`/templates/elane/product/${product.slug}`} className="block">
+      <Link href={`/templates/elane/product/${product.slug}`} className="block">
         <div className="mt-3 flex items-center justify-between gap-2">
           <span className="text-sm">{product.name}</span>
           <span className="text-sm text-[#242321]/60">{money(product.price)}</span>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

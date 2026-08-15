@@ -1,3 +1,4 @@
+import Link from "next/link";
 import NewsletterForm from "./components/NewsletterForm";
 
 export default function VeloraFooter() {
@@ -37,9 +38,9 @@ export default function VeloraFooter() {
             <ul className="mt-4 space-y-2.5 text-sm text-[#A9A198]">
               {shop.map(([label, href]) => (
                 <li key={label}>
-                  <a href={href} className="transition-colors hover:text-[#F3EEE6]">
+                  <Link href={href} className="transition-colors hover:text-[#F3EEE6]">
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -52,9 +53,9 @@ export default function VeloraFooter() {
             <ul className="mt-4 space-y-2.5 text-sm text-[#A9A198]">
               {help.map(([label, href]) => (
                 <li key={label}>
-                  <a href={href} className="transition-colors hover:text-[#F3EEE6]">
+                  <Link href={href} className="transition-colors hover:text-[#F3EEE6]">
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
