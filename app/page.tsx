@@ -98,8 +98,8 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-4 pb-16 pt-24 text-center sm:px-6 sm:pb-20 lg:px-8">
           <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-[1.2] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            مواقعٌ تُصمَّم لتُبنى{" "}
-            <span className="text-gradient">لتناسب نشاطك</span>
+            نصنع تجارب رقمية{" "}
+            <span className="text-gradient">تصنع الفرق</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">

@@ -15,7 +15,7 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "NexoraStudio — مواقع تُصمَّم لتناسب نشاطك",
+  title: "NexoraStudio — نصنع تجارب رقمية تصنع الفرق",
   description:
     "استوديو تصميم وتطوير مواقع — أصمم وأبني موقعك يدوياً من الصفر ليليق بعلامتك ويحوّل زوّارك إلى عملاء.",
 };
