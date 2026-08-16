@@ -21,6 +21,14 @@ const templates = [
     sitePrice: "12,000 دج",
     pagePrice: "6,500 دج",
   },
+  {
+    slug: "noli",
+    name: "NOLI & CO. — أطفال",
+    tagline: "بوتيك دافئ وفاخر لملابس وألعاب الأطفال الطبيعية والمستدامة",
+    tags: ["أطفال", "بوتيك", "متجر"],
+    sitePrice: "13,000 دج",
+    pagePrice: "7,000 دج",
+  },
 ];
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
