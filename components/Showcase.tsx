@@ -108,7 +108,7 @@ export default function Showcase() {
         </div>
 
         {/* Frames */}
-        <div className="relative h-[420px] sm:h-[560px]">
+        <div className="relative h-[480px] sm:h-[620px] lg:h-[680px]">
           {templates.map((t, i) => (
             <iframe
               key={t.slug}

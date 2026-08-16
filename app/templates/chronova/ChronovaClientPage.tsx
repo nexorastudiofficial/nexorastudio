@@ -102,48 +102,88 @@ export default function ChronovaClientPage() {
     <div className="min-h-full bg-[#0C0D0F] text-[#F1F1EE] antialiased selection:bg-[#B7A27A]/30">
       <ChronovaHeader />
 
-      {/* 1. Hero Section */}
-      <section className="relative h-[84vh] min-h-[560px] overflow-hidden bg-[#0A0B0D]">
-        <Image
-          src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop"
-          alt="CHRONOVA — Time, Reimagined"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        {/* Cinematic dark titanium gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-[#0C0D0F]/60 to-black/40" />
+      {/* 1. Hero Section (Balanced 2-Column Luxury Layout) */}
+      <section className="relative overflow-hidden border-b border-[#292C30] bg-[#0A0B0D]">
+        {/* Subtle radial titanium and gold glow */}
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-[#B7A27A]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 left-10 w-72 h-72 bg-[#8796A3]/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="absolute inset-x-0 bottom-0 px-6 pb-14 sm:mx-auto sm:max-w-6xl sm:pb-24">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#B7A27A]/30 bg-black/40 px-4 py-1.5 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#B7A27A]" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#B7A27A] sm:text-xs">
-              Modern Precision · 2026 Timepieces
-            </span>
-          </div>
+        <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16 lg:py-20 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Typography & CTAs (6 cols) */}
+            <div className="lg:col-span-6 space-y-6 text-center lg:text-right">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#B7A27A]/40 bg-[#15171A]/80 px-4 py-1.5 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#B7A27A] animate-pulse" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#B7A27A] sm:text-xs">
+                  Modern Precision · 2026 Timepieces
+                </span>
+              </div>
 
-          <h1 className="mt-4 max-w-3xl font-serif-display text-4xl font-light leading-[1.12] text-[#F1F1EE] sm:text-6xl lg:text-7xl">
-            الوقت، برؤيةٍ معاصرة.
-          </h1>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#8E9298] sm:text-base">
-            دقة الحاضر وتصميم يعيش لما بعد الغد — حيث تلتقي حرفية الساعات الميكانيكية الأصيلة مع أحدث ابتكارات التقنية الذكية.
-          </p>
+              <h1 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.12] text-[#F1F1EE]">
+                الوقت، <br className="hidden sm:inline" />
+                <span className="text-[#B7A27A] italic">برؤيةٍ معاصرة.</span>
+              </h1>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href="/templates/chronova/collections/smart"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#B7A27A] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#0C0D0F] transition-all hover:brightness-110 shadow-lg shadow-[#B7A27A]/25"
-            >
-              استكشف الساعات الذكية
-              <span aria-hidden>←</span>
-            </Link>
-            <Link
-              href="/templates/chronova/collections/classic"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#F1F1EE] backdrop-blur-xs transition-colors hover:bg-white/10 hover:border-white/40"
-            >
-              استكشف الساعات الكلاسيكية
-            </Link>
+              <p className="text-sm leading-relaxed text-[#8E9298] max-w-lg mx-auto lg:mx-0">
+                دقة الحاضر وتصميم يعيش لما بعد الغد — حيث تلتقي حرفية الساعات الميكانيكية الأصيلة مع أحدث ابتكارات التقنية الذكية.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+                <Link
+                  href="/templates/chronova/collections/smart"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#B7A27A] px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#0C0D0F] transition-all hover:brightness-110 shadow-lg shadow-[#B7A27A]/20"
+                >
+                  استكشف الساعات الذكية
+                  <span aria-hidden>←</span>
+                </Link>
+                <Link
+                  href="/templates/chronova/collections/classic"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#F1F1EE] backdrop-blur-xs transition-colors hover:bg-white/10 hover:border-white/40"
+                >
+                  الساعات الكلاسيكية
+                </Link>
+              </div>
+
+              {/* Trust micro-badges */}
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#8E9298]">
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#B7A27A]">✦</span> ضمان رسمي سنتين
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#B7A27A]">✦</span> فحص ومعاينة قبل الدفع
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#B7A27A]">✦</span> توصيل 58 ولاية
+                </span>
+              </div>
+            </div>
+
+            {/* Right Column: Hero Visual Card (6 cols) */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] overflow-hidden rounded-2xl border border-[#292C30] bg-[#15171A] shadow-2xl group">
+                <Image
+                  src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop"
+                  alt="CHRONOVA Luxury Watch"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-80" />
+
+                {/* Floating Specs Pill */}
+                <div className="absolute bottom-4 inset-x-4 flex items-center justify-between rounded-xl bg-black/60 border border-white/10 p-3.5 backdrop-blur-md text-xs">
+                  <div>
+                    <span className="text-[10px] font-mono text-[#B7A27A] block">FLAGSHIP EDITION</span>
+                    <span className="font-serif-display text-sm text-[#F1F1EE]">CHRONOVA ARC 01 Automatic</span>
+                  </div>
+                  <div className="text-left">
+                    <span className="font-serif-display text-sm font-semibold text-[#B7A27A] block">32,500 دج</span>
+                    <span className="text-[10px] text-[#8E9298]">فولاذ 316L · ياقوت</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

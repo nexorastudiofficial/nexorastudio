@@ -110,48 +110,87 @@ export default function NoliClientPage() {
     <div className="min-h-full bg-[#FAF7F2] text-[#30312D] antialiased selection:bg-[#E8B9A6]/30">
       <NoliHeader />
 
-      {/* 1. Hero Section */}
-      <section className="relative h-[82vh] min-h-[540px] overflow-hidden bg-[#EAE3D8]">
-        <Image
-          src="https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=1600&auto=format&fit=crop"
-          alt="NOLI & CO. — Modern Baby Boutique"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_35%]"
-        />
-        {/* Soft atmospheric gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-black/10" />
+      {/* 1. Hero Section (Balanced 2-Column Warm Boutique Layout) */}
+      <section className="relative overflow-hidden border-b border-[#EAE3D8] bg-[#FAF7F2]">
+        {/* Soft warm peach ambient glow */}
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-[#E8B9A6]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 left-10 w-72 h-72 bg-[#D1D9C5]/30 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="absolute inset-x-0 bottom-0 px-6 pb-12 sm:mx-auto sm:max-w-6xl sm:pb-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/25 px-3.5 py-1 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#E8B9A6]" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-white/90 sm:text-xs">
-              NOLI & CO. · مجموعة ربيع وصيف 2026
-            </span>
-          </div>
+        <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16 lg:py-20 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left: Typography & CTAs (6 cols) */}
+            <div className="lg:col-span-6 space-y-6 text-center lg:text-right">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D8CFC4] bg-white/80 px-4 py-1.5 backdrop-blur-md shadow-xs">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#E8B9A6]" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#8A725F] sm:text-xs">
+                  NOLI & CO. · Little things. Big moments.
+                </span>
+              </div>
 
-          <h1 className="mt-4 max-w-2xl font-serif-display text-4xl font-light leading-[1.12] text-white sm:text-6xl lg:text-7xl">
-            صُنعت للحظاتهم الصغيرة.
-          </h1>
-          <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/90 sm:text-base">
-            ملابس وألعاب منتقاة بعناية من خامات طبيعية لترافق نموهم، ولعبهم، وكل تفاصيل طفولتهم الجميلة.
-          </p>
+              <h1 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight text-[#30312D]">
+                صُنعت للحظاتهم <br className="hidden sm:inline" />
+                <span className="text-[#8A725F] italic">الصغيرة والدافئة.</span>
+              </h1>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href="/templates/noli/collections/clothing"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FAF7F2] px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-[#30312D] transition-all hover:bg-white hover:shadow-lg shadow-xs"
-            >
-              تسوّق الملابس
-              <span aria-hidden>←</span>
-            </Link>
-            <Link
-              href="/templates/noli/collections/toys"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/10 px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white backdrop-blur-xs transition-colors hover:bg-white/20"
-            >
-              استكشف الألعاب
-            </Link>
+              <p className="text-sm leading-relaxed text-[#737067] max-w-lg mx-auto lg:mx-0">
+                ملابس وألعاب أطفال منتقاة بعناية من خامات طبيعية عضوية 100% لترافق نموهم، ولعبهم، وكل تفاصيل طفولتهم الجميلة.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+                <Link
+                  href="/templates/noli/collections/clothing"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8A725F] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#FAF7F2] transition-all hover:bg-[#735D4C] shadow-md shadow-[#8A725F]/20"
+                >
+                  تسوّق الملابس
+                  <span aria-hidden>←</span>
+                </Link>
+                <Link
+                  href="/templates/noli/collections/toys"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D8CFC4] bg-white px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-[#30312D] transition-colors hover:border-[#8A725F] hover:bg-[#FAF7F2]"
+                >
+                  استكشف الألعاب الخشبية
+                </Link>
+              </div>
+
+              {/* Trust micro-badges */}
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#737067]">
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#8A725F]">🌿</span> قطن عضوي وكتان نقي
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#8A725F]">🪵</span> ألعاب مونتيسوري آمنة 100%
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#8A725F]">🎁</span> تغليف هدايا فاخر
+                </span>
+              </div>
+            </div>
+
+            {/* Right: Framed Warm Boutique Card (6 cols) */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] overflow-hidden rounded-3xl border border-[#EAE3D8] bg-[#EAE3D8] shadow-xl group">
+                <Image
+                  src="https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=1200&auto=format&fit=crop"
+                  alt="NOLI & CO. Baby Boutique"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-[center_35%] transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+
+                {/* Floating highlight card */}
+                <div className="absolute bottom-4 inset-x-4 flex items-center justify-between rounded-2xl bg-white/90 border border-white/60 p-3.5 backdrop-blur-md text-xs shadow-lg">
+                  <div>
+                    <span className="text-[10px] font-medium uppercase tracking-wider text-[#8A725F] block">ORGANIC ESSENTIALS</span>
+                    <span className="font-serif-display text-sm font-semibold text-[#30312D]">مجموعة النعومة الأولى (0-24 شهر)</span>
+                  </div>
+                  <span className="rounded-full bg-[#E8B9A6]/30 text-[#8A725F] px-3 py-1 text-[10px] font-bold">
+                    طبيعي 100% 🌿
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

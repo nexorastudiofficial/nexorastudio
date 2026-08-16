@@ -59,45 +59,88 @@ const heroImg =
 export default function VeloraHome() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[92vh] flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={heroImg}
-            alt="زجاجة عطر فيلورا"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#11100F] via-[#11100F]/40 to-[#11100F]/30" />
-        </div>
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20">
-          <p className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#B99A67] sm:text-xs">
-            VELORA · دار عطور
-          </p>
-          <h1 className="mt-5 max-w-2xl font-serif-display text-4xl font-light leading-[1.15] tracking-tight text-[#F3EEE6] sm:text-6xl">
-            عطرٌ يصبح
-            <br />
-            بصمتك.
-          </h1>
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-[#F3EEE6]/80 sm:text-base">
-            اكتشفي عطوراً صُنعت لترك أثراً لا يُنسى — من النفحة الأولى إلى آخر
-            أثرٍ يبقى.
-          </p>
-          <div className="mt-9 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-            <Link
-              href="/templates/velora/collections/all"
-              className="inline-flex w-full items-center justify-center bg-[#B99A67] px-9 py-4 text-xs font-medium uppercase tracking-[0.25em] text-[#11100F] transition-colors hover:bg-[#C9AA76] sm:w-auto"
-            >
-              اكتشفي المجموعة
-            </Link>
-            <a
-              href="#signature"
-              className="inline-flex w-full items-center justify-center border border-[#F3EEE6]/40 px-9 py-4 text-xs font-medium uppercase tracking-[0.25em] text-[#F3EEE6] transition-colors hover:border-[#F3EEE6] hover:bg-[#F3EEE6]/10 sm:w-auto"
-            >
-              تسوّقي الأكثر مبيعاً
-            </a>
+      {/* Hero Section (Balanced 2-Column Luxury Perfume Layout) */}
+      <section className="relative overflow-hidden border-b border-[#332F2A] bg-[#11100F]">
+        {/* Soft amber and gold ambient glow */}
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-[#B99A67]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-10 w-72 h-72 bg-[#B99A67]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16 lg:py-20 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left: Typography & CTAs (6 cols) */}
+            <div className="lg:col-span-6 space-y-6 text-center lg:text-right">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#B99A67]/40 bg-[#1D1B19]/80 px-4 py-1.5 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#B99A67] animate-pulse" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#B99A67] sm:text-xs">
+                  VELORA · Haute Parfumerie 2026
+                </span>
+              </div>
+
+              <h1 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight text-[#F3EEE6]">
+                عطرٌ يصبح <br className="hidden sm:inline" />
+                <span className="text-[#B99A67] italic">بصمتك الخاصة.</span>
+              </h1>
+
+              <p className="text-sm leading-relaxed text-[#F3EEE6]/80 max-w-lg mx-auto lg:mx-0">
+                اكتشفي عطوراً صُنعت لترك أثراً لا يُنسى — تركيبات مركزة بنسبة Extrait de Parfum تأسر الحواس من النفحة الأولى حتى آخر أثرٍ يبقى.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+                <Link
+                  href="/templates/velora/collections/all"
+                  className="inline-flex items-center justify-center gap-2 bg-[#B99A67] px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-[#11100F] transition-all hover:bg-[#C9AA76] hover:shadow-lg shadow-black/20"
+                >
+                  اكتشفي التشكيلة كاملة
+                  <span aria-hidden>←</span>
+                </Link>
+                <a
+                  href="#quiz"
+                  className="inline-flex items-center justify-center gap-2 border border-[#F3EEE6]/40 px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-[#F3EEE6] transition-colors hover:border-[#F3EEE6] hover:bg-[#F3EEE6]/10"
+                >
+                  اختبار العطر المناسب (Quiz)
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#A9A198]">
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#B99A67]">✦</span> عطور نيش أصلية 100%
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#B99A67]">✦</span> ثبات وفوحان يتجاوز 24 ساعة
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#B99A67]">✦</span> عينة تجربة مع كل طلب
+                </span>
+              </div>
+            </div>
+
+            {/* Right: Framed Luxury Perfume Card (6 cols) */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] overflow-hidden rounded-2xl border border-[#332F2A] bg-[#1D1B19] shadow-2xl group">
+                <Image
+                  src={heroImg}
+                  alt="زجاجة عطر فيلورا الفاخرة"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#11100F] via-transparent to-transparent opacity-75" />
+
+                {/* Perfume Note floating badge */}
+                <div className="absolute bottom-4 inset-x-4 flex items-center justify-between rounded-xl bg-black/60 border border-[#B99A67]/30 p-3.5 backdrop-blur-md text-xs">
+                  <div>
+                    <span className="text-[10px] font-mono text-[#B99A67] block">SIGNATURE BLEND</span>
+                    <span className="font-serif-display text-sm text-[#F3EEE6]">Nº 01 — VELOURS NOIR</span>
+                  </div>
+                  <div className="text-left">
+                    <span className="font-serif-display text-sm font-semibold text-[#B99A67] block">14,500 دج</span>
+                    <span className="text-[10px] text-[#A9A198]">عود معتق · عنبر · فانيلا</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
