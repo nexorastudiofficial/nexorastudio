@@ -37,6 +37,14 @@ const templates = [
     sitePrice: "14,000 دج",
     pagePrice: "7,500 دج",
   },
+  {
+    slug: "avero",
+    name: "AVERO — أحذية رياضية 3D",
+    tagline: "متجر أحذية أداء وستريت وير معاصر بعارض تفاعلي ثلاثي الأبعاد 3D",
+    tags: ["أحذية", "3D", "رياضي"],
+    sitePrice: "15,000 دج",
+    pagePrice: "8,000 دج",
+  },
 ];
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
