@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCart } from "../cart/CartContext";
 import { money } from "../data/money";
 import { sizePrice, type Fragrance } from "../data/fragrances";
+import { trackAddToCart } from "@/lib/pixel";
 
 export default function ProductCard({
   fragrance,
@@ -12,6 +13,28 @@ export default function ProductCard({
   fragrance: Fragrance;
 }) {
   const { add } = useCart();
+
+  const handleAdd = () => {
+    const price = sizePrice(fragrance.price, 1);
+    add({
+      slug: fragrance.slug,
+      no: fragrance.no,
+      name: fragrance.name,
+      nameEn: fragrance.nameEn,
+      type: fragrance.type,
+      price,
+      img: fragrance.images[0],
+      size: "50 مل",
+      qty: 1,
+    });
+    trackAddToCart({
+      content_name: `${fragrance.no} — ${fragrance.nameEn}`,
+      content_category: "Perfume",
+      content_ids: [fragrance.slug],
+      value: price,
+      currency: "DZD",
+    });
+  };
 
   return (
     <div className="group">
@@ -44,19 +67,7 @@ export default function ProductCard({
             عرض سريع
           </Link>
           <button
-            onClick={() =>
-              add({
-                slug: fragrance.slug,
-                no: fragrance.no,
-                name: fragrance.name,
-                nameEn: fragrance.nameEn,
-                type: fragrance.type,
-                price: sizePrice(fragrance.price, 1),
-                img: fragrance.images[0],
-                size: "50 مل",
-                qty: 1,
-              })
-            }
+            onClick={handleAdd}
             aria-label="أضف إلى الحقيبة"
             className="flex w-12 items-center justify-center bg-[#F3EEE6] text-[#11100F] transition-colors hover:bg-[#B99A67]"
           >

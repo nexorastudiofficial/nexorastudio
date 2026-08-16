@@ -111,6 +111,8 @@ export default function Home() {
               href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
+              data-pixel-event="Lead"
+              data-pixel-button="Hero Order Website CTA"
               className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 px-7 text-sm font-semibold text-white shadow-xl shadow-violet-600/30 transition-all hover:shadow-cyan-500/40 hover:brightness-110 sm:w-auto"
             >
               اطلب موقعك الآن
@@ -128,6 +130,7 @@ export default function Home() {
             </a>
             <Link
               href="/contact"
+              data-pixel-button="Hero Contact Form CTA"
               className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur transition-colors hover:border-white/30 hover:bg-white/10 sm:w-auto"
             >
               أخبرني عن مشروعك
@@ -282,12 +285,15 @@ export default function Home() {
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-pixel-event="Lead"
+                  data-pixel-button="Bottom Order Website CTA"
                   className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[#05060b] shadow-lg transition-transform hover:scale-[1.03] sm:w-auto"
                 >
                   تواصل عبر فيسبوك
                 </a>
                 <Link
                   href="/contact"
+                  data-pixel-button="Bottom Contact Form CTA"
                   className="inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10 sm:w-auto"
                 >
                   أرسل تفاصيل مشروعك
@@ -328,6 +334,8 @@ export default function Home() {
               href="https://www.facebook.com/profile.php?id=61591467674620"
               target="_blank"
               rel="noopener noreferrer"
+              data-pixel-event="Contact"
+              data-pixel-button="Footer Facebook Link"
               className="transition-colors hover:text-white"
             >
               فيسبوك
@@ -336,6 +344,8 @@ export default function Home() {
               href="https://wa.me/213564086437"
               target="_blank"
               rel="noopener noreferrer"
+              data-pixel-event="Contact"
+              data-pixel-button="Footer WhatsApp Link"
               className="transition-colors hover:text-white"
             >
               واتساب

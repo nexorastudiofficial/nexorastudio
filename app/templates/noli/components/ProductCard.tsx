@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useCart } from "../cart/CartContext";
 import { money } from "../data/money";
 import type { Product } from "../data/products";
+import { trackAddToCart } from "@/lib/pixel";
 
 const colorMap: Record<string, string> = {
   Cream: "bg-[#F5F2EB] border-zinc-300",
@@ -33,6 +34,13 @@ export default function ProductCard({ product }: { product: Product }) {
       size: product.sizes ? product.sizes[0] : "",
       color: product.colors ? product.colors[0] : "",
       qty: 1,
+    });
+    trackAddToCart({
+      content_name: product.name,
+      content_category: product.category,
+      content_ids: [product.slug],
+      value: product.price,
+      currency: "DZD",
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 1800);

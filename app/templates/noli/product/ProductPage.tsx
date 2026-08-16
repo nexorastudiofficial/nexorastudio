@@ -8,6 +8,7 @@ import NoliFooter from "../NoliFooter";
 import { byCategory, sizes as allSizes, type Product } from "../data/products";
 import { useCart } from "../cart/CartContext";
 import { money } from "../data/money";
+import { trackAddToCart, trackViewContent } from "@/lib/pixel";
 
 const trustItems = [
   { icon: "✓", text: "خامات قطنية وعضوية 100% آمنة للرضع" },
@@ -62,6 +63,17 @@ export default function ProductPage({ product }: { product: Product }) {
     .slice(0, 3);
 
   useEffect(() => {
+    // Track ViewContent event
+    trackViewContent({
+      content_name: product.name,
+      content_category: product.category,
+      content_ids: [product.slug],
+      value: product.price,
+      currency: "DZD",
+    });
+  }, [product]);
+
+  useEffect(() => {
     const el = infoRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -88,6 +100,13 @@ export default function ProductPage({ product }: { product: Product }) {
       size: selectedSize,
       color: selectedColor,
       qty,
+    });
+    trackAddToCart({
+      content_name: product.name,
+      content_category: product.category,
+      content_ids: [product.slug],
+      value: product.price * qty,
+      currency: "DZD",
     });
   };
 

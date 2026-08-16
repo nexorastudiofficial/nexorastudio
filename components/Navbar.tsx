@@ -59,6 +59,8 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="#cta"
+            data-pixel-event="Lead"
+            data-pixel-button="Order Website Header CTA"
             className="rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-violet-600/25 transition-all hover:shadow-violet-500/50 hover:brightness-110"
           >
             اطلب موقعك

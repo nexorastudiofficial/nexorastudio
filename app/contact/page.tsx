@@ -29,6 +29,8 @@ export default function ContactPage() {
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-pixel-event="Contact"
+                data-pixel-button="Facebook Link"
                 className="mt-1 inline-block text-violet-300 transition-colors hover:text-violet-200"
               >
                 صفحة NexoraStudio
@@ -40,6 +42,8 @@ export default function ContactPage() {
               </p>
               <a
                 href="mailto:nexorastudiofficial@gmail.com"
+                data-pixel-event="Contact"
+                data-pixel-button="Email Link"
                 className="mt-1 inline-block text-zinc-400 transition-colors hover:text-cyan-300"
                 dir="ltr"
               >
@@ -53,6 +57,8 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 dir="ltr"
+                data-pixel-event="Contact"
+                data-pixel-button="WhatsApp Contact"
                 className="mt-1 inline-block text-emerald-300 transition-colors hover:text-emerald-200 font-mono"
               >
                 +213 564 08 64 37

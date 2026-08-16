@@ -7,6 +7,7 @@ import NoliHeader from "../NoliHeader";
 import NoliFooter from "../NoliFooter";
 import { useCart } from "../cart/CartContext";
 import { money } from "../data/money";
+import { trackPurchase } from "@/lib/pixel";
 
 const algerianWilayas = [
   "01 - أدرار", "02 - الشلف", "03 - الأغواط", "04 - أم البواقي", "05 - باتنة",
@@ -46,6 +47,12 @@ export default function OrderPage() {
 
     const fakeOrderNum = "NOLI-" + Math.floor(100000 + Math.random() * 900000);
     setOrderNumber(fakeOrderNum);
+    trackPurchase({
+      value: total,
+      order_id: fakeOrderNum,
+      num_items: count,
+      currency: "DZD",
+    });
     setSubmitted(true);
     clear();
   };
