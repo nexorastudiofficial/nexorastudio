@@ -29,6 +29,14 @@ const templates = [
     sitePrice: "13,000 دج",
     pagePrice: "7,000 دج",
   },
+  {
+    slug: "chronova",
+    name: "CHRONOVA — ساعات",
+    tagline: "متجر ساعات فاخر يجمع بين دقة الصناعة الكلاسيكية والتقنية الذكية المعاصرة",
+    tags: ["ساعات", "تقني", "فاخر"],
+    sitePrice: "14,000 دج",
+    pagePrice: "7,500 دج",
+  },
 ];
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
