@@ -16,8 +16,8 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "NexoraStudio — نصنع تجارب رقمية تصنع الفرق",
-  description: "مواقع عصرية، هويات رقمية، وحلول مصممة لتنمية أعمالك.",
+  title: "NexoraStudio — من فكرة في ذهنك، إلى واقع رقمي.",
+  description: "نصمم ونطور مواقع إلكترونية، منصات رقمية، وبرمجيات مخصصة تحوّل أفكارك إلى حلول حقيقية.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

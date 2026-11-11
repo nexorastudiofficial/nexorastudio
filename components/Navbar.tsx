@@ -6,7 +6,8 @@ import logo from "@/public/logo.png";
 
 const links = [
   { label: "خدماتنا", href: "#features" },
-  { label: "أعمالنا", href: "#work" },
+  { label: "نماذج الويب", href: "#work" },
+  { label: "برنامج السوبرماركت (EasyMart)", href: "#desktop-apps" },
   { label: "كيف أعمل", href: "#how-it-works" },
 ];
 
@@ -44,24 +45,24 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 md:flex shrink-0">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-zinc-400 transition-colors hover:text-white"
+              className="text-sm text-zinc-400 transition-colors hover:text-white whitespace-nowrap shrink-0"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 md:flex shrink-0">
           <a
             href="#cta"
             data-pixel-event="Lead"
             data-pixel-button="Order Website Header CTA"
-            className="rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-violet-600/25 transition-all hover:shadow-violet-500/50 hover:brightness-110"
+            className="rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-violet-600/25 transition-all hover:shadow-violet-500/50 hover:brightness-110 whitespace-nowrap shrink-0"
           >
             اطلب موقعك
           </a>

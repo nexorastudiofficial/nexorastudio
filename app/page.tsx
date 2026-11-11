@@ -4,6 +4,7 @@ import logo from "@/public/logo.png";
 import Navbar from "@/components/Navbar";
 import Scene from "@/components/Scene";
 import Showcase from "@/components/Showcase";
+import DesktopApps from "@/components/DesktopApps";
 
 
 const services = [
@@ -98,12 +99,12 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-4 pb-16 pt-24 text-center sm:px-6 sm:pb-20 lg:px-8">
           <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-[1.2] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            نصنع تجارب رقمية{" "}
-            <span className="text-gradient">تصنع الفرق</span>
+            من فكرة في ذهنك،{" "}
+            <span className="text-gradient">إلى واقع رقمي.</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
-            مواقع عصرية، هويات رقمية، وحلول مصممة لتنمية أعمالك.
+            نصمم ونطور مواقع إلكترونية، منصات رقمية، وبرمجيات مخصصة تحوّل أفكارك إلى حلول حقيقية.
           </p>
 
           <div className="mt-10 flex w-full max-w-sm flex-col items-center gap-4 sm:w-auto sm:max-w-none sm:flex-row">
@@ -140,7 +141,7 @@ export default function Home() {
           <div className="mt-14 grid w-full max-w-3xl grid-cols-3 gap-4 border-t border-white/10 pt-8 sm:gap-6">
             {[
               ["100%", "تصميم وتطوير مخصص"],
-              ["+5", "قوالب حيّة جاهزة"],
+              ["4", "قوالب حيّة جاهزة"],
               ["24 ساعة", "وقت الرد على طلبك"],
             ].map(([value, label]) => (
               <div key={label}>
@@ -231,6 +232,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Desktop Apps & POS */}
+      <DesktopApps />
 
       {/* How it works */}
       <section id="how-it-works" className="relative scroll-mt-20 overflow-hidden border-t border-white/5 py-16 sm:py-28">
