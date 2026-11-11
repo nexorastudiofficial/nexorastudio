@@ -1,10 +1,16 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import logo from "@/public/logo.png";
+import easymartLogo from "@/public/easymart-logo.png";
+import posScreen from "@/public/easymart-screens/pos.png";
+import productsScreen from "@/public/easymart-screens/products.png";
+import suppliersScreen from "@/public/easymart-screens/suppliers.png";
+import analyticsScreen from "@/public/easymart-screens/analytics.png";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61591467674620";
 
 // EasyMart POS Live Interactive Pages for quick check
@@ -13,7 +19,8 @@ export const supermarketScreenshots = [
     id: "pos",
     title: "شاشة الكاشير السريعة ونقطة البيع (POS)",
     tag: "نقطة البيع الرئيسية (POS)",
-    route: "/easymart-demo/index.html?standalone=1#/pos",
+    route: `${BASE_PATH}/easymart-demo/index.html?standalone=1#/pos`,
+    image: posScreen,
     description:
       "واجهة كاشير تفاعلية مصممة لتحمل ضغط وسرعة طوابير السوبرماركت. دعم فوري لقارئ الباركود، باركود الموازين الإلكترونية (الوزن والسعر)، والبحث اللحظي عن السلع.",
     features: [
@@ -27,7 +34,8 @@ export const supermarketScreenshots = [
     id: "products",
     title: "شاشة إدارة المنتجات والباركود (Products)",
     tag: "إدارة المنتجات (Products)",
-    route: "/easymart-demo/index.html?standalone=1#/products",
+    route: `${BASE_PATH}/easymart-demo/index.html?standalone=1#/products`,
+    image: productsScreen,
     description:
       "جدول متكامل لإدارة آلاف المنتجات الاستهلاكية، تصنيفها بالأقسام، تحديد أسعار الشراء والبيع، وتوليد وطباعة ملصقات الباركود.",
     features: [
@@ -41,7 +49,8 @@ export const supermarketScreenshots = [
     id: "suppliers",
     title: "شاشة الموردين وفواتير الشراء (Suppliers)",
     tag: "الموردون والمشتريات (Suppliers)",
-    route: "/easymart-demo/index.html?standalone=1#/suppliers",
+    route: `${BASE_PATH}/easymart-demo/index.html?standalone=1#/suppliers`,
+    image: suppliersScreen,
     description:
       "تسجيل سريع لفواتير شراء موزعي المواد الغذائية، تتبع أسعار الشراء وتحديث أسعار البيع تلقائياً، مع دفتر حسابات دقيق لمستحقات الموزعين.",
     features: [
@@ -55,7 +64,8 @@ export const supermarketScreenshots = [
     id: "analytics",
     title: "لوحة إحصائيات وتقارير المبيعات (Sales Analytics)",
     tag: "إحصائيات المبيعات (Sales Analytics)",
-    route: "/easymart-demo/index.html?standalone=1#/analytics?tab=sales",
+    route: `${BASE_PATH}/easymart-demo/index.html?standalone=1#/analytics?tab=sales`,
+    image: analyticsScreen,
     description:
       "لوحة تحكم إحصائية تفصيلية لمبيعات السوبرماركت تعرض المبيعات بالساعة، ساعات الذروة، متوسط سلة المشتريات، ومقارنة الفترات الزمنية.",
     features: [
@@ -148,14 +158,17 @@ function ShowcaseScaledViewport({
   route,
   title,
   tag,
+  image,
 }: {
   route: string;
   title: string;
   tag: string;
+  image?: StaticImageData;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.6);
   const [fitMode, setFitMode] = useState<"fit" | "actual">("fit");
+  const [mode, setMode] = useState<"interactive" | "screenshot">("interactive");
 
   const BASE_WIDTH = 1200;
   const BASE_HEIGHT = 760;
@@ -192,40 +205,59 @@ function ShowcaseScaledViewport({
     <div className="flex flex-col gap-2.5">
       {/* Top scale controls bar */}
       <div className="flex items-center justify-between px-2 text-xs text-zinc-400 gap-2 overflow-x-auto scrollbar-none">
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="flex items-center gap-1.5 text-emerald-400 font-medium whitespace-nowrap shrink-0">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            واجهة كاملة بنسبة 100% (Shrunk to fit)
-          </span>
-          <span className="text-[11px] text-zinc-500 font-mono whitespace-nowrap shrink-0">
-            {Math.round(scale * 100)}% ملائمة للشاشة
-          </span>
+        <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-lg p-0.5 shrink-0">
+          <button
+            type="button"
+            onClick={() => setMode("interactive")}
+            className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition-colors whitespace-nowrap shrink-0 ${
+              mode === "interactive"
+                ? "bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold shadow"
+                : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            تجربة تفاعلية (Live)
+          </button>
+          {image && (
+            <button
+              type="button"
+              onClick={() => setMode("screenshot")}
+              className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition-colors whitespace-nowrap shrink-0 ${
+                mode === "screenshot"
+                  ? "bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold shadow"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              لقطة شاشة حقيقية (HD)
+            </button>
+          )}
         </div>
 
-        <div className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-0.5 shrink-0">
-          <button
-            type="button"
-            onClick={() => setFitMode("fit")}
-            className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition-colors whitespace-nowrap shrink-0 ${
-              fitMode === "fit"
-                ? "bg-cyan-500 text-slate-950 font-bold shadow"
-                : "text-zinc-400 hover:text-white"
-            }`}
-          >
-            ملائمة كاملة (100% Fit)
-          </button>
-          <button
-            type="button"
-            onClick={() => setFitMode("actual")}
-            className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition-colors whitespace-nowrap shrink-0 ${
-              fitMode === "actual"
-                ? "bg-cyan-500 text-slate-950 font-bold shadow"
-                : "text-zinc-400 hover:text-white"
-            }`}
-          >
-            المقاس الأصلي (1:1)
-          </button>
-        </div>
+        {mode === "interactive" && (
+          <div className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-0.5 shrink-0">
+            <button
+              type="button"
+              onClick={() => setFitMode("fit")}
+              className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition-colors whitespace-nowrap shrink-0 ${
+                fitMode === "fit"
+                  ? "bg-cyan-500 text-slate-950 font-bold shadow"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              ملائمة كاملة (100% Fit)
+            </button>
+            <button
+              type="button"
+              onClick={() => setFitMode("actual")}
+              className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition-colors whitespace-nowrap shrink-0 ${
+                fitMode === "actual"
+                  ? "bg-cyan-500 text-slate-950 font-bold shadow"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              المقاس الأصلي (1:1)
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Scaled Showcase Frame Container */}
@@ -233,24 +265,35 @@ function ShowcaseScaledViewport({
         ref={containerRef}
         className="relative h-[480px] sm:h-[560px] md:h-[620px] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#060814] shadow-2xl flex items-center justify-center"
       >
-        <div
-          style={{
-            width: `${BASE_WIDTH}px`,
-            height: `${BASE_HEIGHT}px`,
-            transform: `scale(${currentScale})`,
-            transformOrigin: "center center",
-            flexShrink: 0,
-          }}
-          className="transition-transform duration-200"
-        >
-          <iframe
-            key={route}
-            src={route}
-            title={title}
-            className="h-full w-full border-0 select-none bg-[#090b17]"
-            allow="clipboard-read; clipboard-write"
-          />
-        </div>
+        {mode === "screenshot" && image ? (
+          <div className="w-full h-full p-2 sm:p-4 flex items-center justify-center bg-black/40">
+            <Image
+              src={image}
+              alt={title}
+              className="w-full h-full object-contain rounded-xl"
+              priority
+            />
+          </div>
+        ) : (
+          <div
+            style={{
+              width: `${BASE_WIDTH}px`,
+              height: `${BASE_HEIGHT}px`,
+              transform: `scale(${currentScale})`,
+              transformOrigin: "center center",
+              flexShrink: 0,
+            }}
+            className="transition-transform duration-200"
+          >
+            <iframe
+              key={route}
+              src={route}
+              title={title}
+              className="h-full w-full border-0 select-none bg-[#090b17]"
+              allow="clipboard-read; clipboard-write"
+            />
+          </div>
+        )}
       </div>
 
       {/* Footer hint & external open */}
@@ -311,7 +354,7 @@ export default function EasyMartPage() {
 
             <div className="flex items-center gap-2 shrink-0 whitespace-nowrap">
               <Image
-                src="/easymart-logo.png"
+                src={easymartLogo}
                 alt="EasyMart POS"
                 width={20}
                 height={20}
@@ -380,7 +423,7 @@ export default function EasyMartPage() {
           
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-cyan-500/20 via-violet-600/30 to-fuchsia-600/20 p-3 ring-1 ring-white/15 shadow-2xl shadow-cyan-500/20">
             <Image
-              src="/easymart-logo.png"
+              src={easymartLogo}
               alt="EasyMart POS Logo"
               width={64}
               height={64}
@@ -521,6 +564,7 @@ export default function EasyMartPage() {
                     route={activeScreen.route}
                     title={activeScreen.title}
                     tag={activeScreen.tag}
+                    image={activeScreen.image}
                   />
                 </div>
 

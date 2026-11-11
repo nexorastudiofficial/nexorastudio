@@ -4,6 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import posScreen from "@/public/easymart-screens/pos.png";
+import productsScreen from "@/public/easymart-screens/products.png";
+import suppliersScreen from "@/public/easymart-screens/suppliers.png";
+import analyticsScreen from "@/public/easymart-screens/analytics.png";
+import easymartLogo from "@/public/easymart-logo.png";
+
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61591467674620";
 
 // You can easily add more desktop apps or POS editions to this list
@@ -73,25 +79,25 @@ export const desktopApps = [
       {
         title: "واجهات كاشير السوبرماركت",
         category: "نقطة البيع السريعة (POS)",
-        image: "/easymart-screens/pos.png",
+        image: posScreen,
         description: "واجهة كاشير تفاعلية وسريعة تدعم قارئ الباركود، شاشات اللمس، واختصارات الدفع السريع الفورية.",
       },
       {
         title: "قراءة باركود الموازين",
         category: "إدارة المنتجات والباركود (Products)",
-        image: "/easymart-screens/products.png",
+        image: productsScreen,
         description: "دعم باركود موازين الوزن والسعر (الأجبان، اللحوم، والخضر)، جرد آلاف السلع، وتوليد وطباعة ملصقات الباركود.",
       },
       {
         title: "إدخال فواتير الموزعين",
         category: "الموردون والمشتريات (Suppliers)",
-        image: "/easymart-screens/suppliers.png",
+        image: suppliersScreen,
         description: "تسجيل فواتير شراء موزعي المواد الغذائية (سيفيتال، صومام، حمود بوعلام، سفينة...) ومتابعة تواريخ الاستحقاق والديون.",
       },
       {
         title: "تقارير جرد اليومية",
         category: "الإحصائيات وجرد الصندوق (Analytics)",
-        image: "/easymart-screens/analytics.png",
+        image: analyticsScreen,
         description: "تقارير إغلاق اليومية Z-Report، مطابقة سيولة الصندوق، وحساب صافي الأرباح بدقة حقيقية 100%.",
       },
     ],
@@ -134,7 +140,7 @@ export default function DesktopApps() {
             <div className="flex items-start gap-4 sm:items-center">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/20 via-violet-600/30 to-fuchsia-600/20 p-2.5 ring-1 ring-white/15 shadow-inner">
                 <Image
-                  src="/easymart-logo.png"
+                  src={easymartLogo}
                   alt="EasyMart POS Logo"
                   width={52}
                   height={52}
@@ -226,7 +232,7 @@ export default function DesktopApps() {
               </div>
               <div className="flex items-center gap-2">
                 <Image
-                  src="/easymart-logo.png"
+                  src={easymartLogo}
                   alt="EasyMart POS"
                   width={16}
                   height={16}
@@ -271,13 +277,11 @@ export default function DesktopApps() {
 
               {/* Active Screenshot Display Frame */}
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#090b17] shadow-2xl">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40">
+                <div className="w-full bg-black/60 p-2 sm:p-5 flex items-center justify-center min-h-[260px] sm:min-h-[440px]">
                   <Image
                     src={selectedApp.screenshots[activeTab].image}
                     alt={selectedApp.screenshots[activeTab].title}
-                    fill
-                    className="object-contain object-center transition-all duration-300"
-                    sizes="(max-width: 1280px) 100vw, 1200px"
+                    className="w-full h-auto max-h-[640px] object-contain rounded-xl shadow-2xl"
                     priority
                   />
                 </div>
@@ -295,7 +299,7 @@ export default function DesktopApps() {
 
                   <div className="flex items-center gap-3 shrink-0">
                     <a
-                      href={selectedApp.screenshots[activeTab].image}
+                      href={selectedApp.screenshots[activeTab].image.src}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-zinc-400 hover:text-white transition-colors text-xs"

@@ -4,7 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo.png";
+import easymartLogo from "@/public/easymart-logo.png";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61591467674620";
 
 export default function EasyMartDemoPage() {
@@ -18,7 +20,7 @@ export default function EasyMartDemoPage() {
     { id: "analytics" as const, label: "إحصائيات المبيعات (Sales Analytics)", hash: "#/analytics?tab=sales" },
   ];
 
-  const currentRoute = `/easymart-demo/index.html?standalone=1${demoPages.find(p => p.id === activeTab)?.hash || "#/pos"}`;
+  const currentRoute = `${BASE_PATH}/easymart-demo/index.html?standalone=1${demoPages.find(p => p.id === activeTab)?.hash || "#/pos"}`;
 
   const reloadDemo = () => {
     setIframeKey((prev) => prev + 1);
@@ -34,7 +36,7 @@ export default function EasyMartDemoPage() {
         <div className="flex items-center gap-2.5 shrink-0">
           <Link href="/easymart" className="flex items-center gap-2 group shrink-0 whitespace-nowrap">
             <Image
-              src="/easymart-logo.png"
+              src={easymartLogo}
               alt="EasyMart Pro Logo"
               width={26}
               height={26}
