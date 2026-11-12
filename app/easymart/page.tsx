@@ -168,7 +168,7 @@ function ShowcaseScaledViewport({
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.6);
   const [fitMode, setFitMode] = useState<"fit" | "actual">("fit");
-  const [mode, setMode] = useState<"interactive" | "screenshot">("interactive");
+  const [mode, setMode] = useState<"interactive" | "screenshot">(image ? "screenshot" : "interactive");
 
   const BASE_WIDTH = 1200;
   const BASE_HEIGHT = 760;
